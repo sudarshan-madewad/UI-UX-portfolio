@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --base: 245 246 248;
+  --surface: 255 255 255;
+  --muted: 234 236 240;
+  --text: 20 24 31;
+  --subtle: 90 95 106;
+  --accent: 0 129 167;
+  --accent2: 242 140 40;
+  --ring: 0 129 167;
+}
+
+.dark {
+  --base: 13 16 22;
+  --surface: 20 25 34;
+  --muted: 29 35 46;
+  --text: 236 240 246;
+  --subtle: 154 163 178;
+  --accent: 56 189 248;
+  --accent2: 251 146 60;
+  --ring: 56 189 248;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-base text-text antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 116, 139, 0.5);
+  border-radius: 999px;
+}
+
+.glass {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.35));
+  backdrop-filter: blur(18px);
+}
+
+.dark .glass {
+  background: linear-gradient(135deg, rgba(20, 25, 34, 0.75), rgba(16, 20, 28, 0.5));
+}
+
+.hero-grid {
+  background-image: radial-gradient(circle at 20% 20%, rgba(0, 129, 167, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 0%, rgba(242, 140, 40, 0.2), transparent 40%),
+    radial-gradient(circle at 50% 70%, rgba(14, 116, 144, 0.16), transparent 45%);
+}
+
+.badge {
+  @apply inline-flex items-center gap-2 rounded-full border border-muted px-4 py-2 text-sm text-subtle;
+}
