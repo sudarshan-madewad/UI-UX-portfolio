@@ -11,7 +11,14 @@ const skills = [
   "Framer",
   "HTML",
   "CSS",
-  "JavaScript"
+  "Prototyping",
+  "Wireframing",
+  "Visual Design",
+  "Typography",
+  "User Interface Design",
+  "User Experience Design",
+  "Accessibility",
+  "Project Management"
 ];
 
 export default function Skills() {

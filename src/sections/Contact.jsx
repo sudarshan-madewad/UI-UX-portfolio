@@ -92,7 +92,7 @@ export default function Contact() {
         <div className="flex flex-col gap-6">
           <div className="rounded-3xl border border-muted bg-surface p-6">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-subtle">Location</p>
-            <p className="mt-3 text-lg font-semibold">Nanded, Maharashtra</p>
+            <p className="mt-3 text-lg font-semibold">Navi Mumbai, Panvel</p>
             <p className="mt-2 text-sm text-subtle">Available for freelance and internships</p>
           </div>
           <div className="rounded-3xl border border-muted bg-surface p-6">

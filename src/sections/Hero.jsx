@@ -42,10 +42,12 @@ export default function Hero() {
               View Projects
             </a>
             <a
-              href="#contact"
+              href="https://drive.google.com/file/d/1vP3G5ovlGXefid4s7rEHkUHZZoDuaubm/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="rounded-full border border-muted px-6 py-3 text-sm font-semibold text-subtle transition hover:border-accent hover:text-text"
             >
-              Contact Me
+              Resume
             </a>
           </motion.div>
         </div>
@@ -58,7 +60,7 @@ export default function Hero() {
           <div className="flex h-full flex-col justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-subtle">Based in</p>
-              <p className="mt-3 text-lg font-semibold text-text">Nanded, Maharashtra</p>
+              <p className="mt-3 text-lg font-semibold text-text">Navi Mumbai, Panvel</p>
             </div>
             <div className="text-sm">
               <p className="text-subtle">Open to collaboration</p>

@@ -8,6 +8,7 @@ const experiences = [
     company: "PlaytPlus Technologies",
     role: "UI/UX Intern",
     duration: "Sep 2025 – Present",
+    location: "Navi Mumbai, CBD Belapur",
     responsibilities: [
       "Designed clean and responsive interfaces for web and mobile platforms.",
       "Improved user experience through intuitive layouts and visual consistency.",
@@ -19,6 +20,7 @@ const experiences = [
     company: "Internpe",
     role: "Web Developer Intern",
     duration: "Sep 2023 – Oct 2023",
+    location: "Remote",
     responsibilities: [
       "Completed multiple projects by managing requirements and timelines effectively.",
       "Built a responsive personal portfolio website with modern UI.",
@@ -56,7 +58,7 @@ export default function Experience() {
             <h3 className="mt-4 text-xl font-semibold">{item.company}</h3>
             <div className="mt-2 flex items-center gap-2 text-sm text-subtle">
               <MapPin className="h-4 w-4" />
-              <span>Nanded, Maharashtra</span>
+              <span>{item.location}</span>
             </div>
             <ul className="mt-4 space-y-2 text-sm text-subtle">
               {item.responsibilities.map((responsibility) => (
