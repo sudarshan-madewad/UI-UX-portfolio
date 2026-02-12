@@ -9,13 +9,101 @@ import heroImage from "../../imgs/hero.png";
 import programsImage from "../../imgs/programs.png";
 import alumniImage from "../../imgs/alumni stories.png";
 import campusImage from "../../imgs/campus tour.png";
+import lumiereAboutImage from "../../Photo and Film Production House Imgs/about us new.png";
+import lumiereArtistProfileImage from "../../Photo and Film Production House Imgs/Artist Profile hero.png";
+import lumiereLandingImage from "../../Photo and Film Production House Imgs/Landing Page hero.png";
+import lumiereArtistSignupImage from "../../Photo and Film Production House Imgs/Signup artist.png";
+import lumiereBrandSignupImage from "../../Photo and Film Production House Imgs/Signup brands.png";
 
 export default function ProjectPage({ theme, onToggle }) {
   const { slug } = useParams();
   const project = projects.find((item) => item.slug === slug);
   const isManipal = project?.slug === "manipal-university-landing-page";
+  const isLumiere = project?.slug === "photo-and-film-production-house";
   const prototypeLink =
     "https://www.figma.com/design/T2ZOiIPA7BWsbw0OjHL83A/Manipal?node-id=62-1365&t=LNTLifUd47Ik3ry8-1";
+  const lumiereMeta = [
+    { label: "Role", value: "Product Designer" },
+    { label: "Duration", value: "2 Weeks" },
+    { label: "Scope", value: "UX Strategy, UI Design, Dashboard System" },
+    { label: "Platform", value: "Website" }
+  ];
+  const lumiereProblemPoints = [
+    "Fragmented communication across emails & messaging apps",
+    "Manual storyboard creation processes",
+    "Lack of centralized talent discovery",
+    "Unclear pricing & availability transparency",
+    "No structured feedback or rating system",
+    "Inefficient collaboration between brands and artists"
+  ];
+  const lumiereImpactPoints = [
+    "Projects take longer to initiate.",
+    "Creative alignment is unclear.",
+    "Hiring decisions lack structure.",
+    "Workflow visibility is limited."
+  ];
+  const lumiereVisionPoints = [
+    "Brands can ideate, generate, and execute projects.",
+    "Artists can position themselves professionally.",
+    "AI enhances creative workflow without replacing human creativity.",
+    "Storyboarding becomes scalable and accessible."
+  ];
+  const lumiereBrandPaths = [
+    {
+      title: "Option 1 — Select from Pre-Created Storyboards",
+      detail: "Curated campaign templates ready for execution."
+    },
+    {
+      title: "Option 2 — AI-Powered Storyboard Generator",
+      detail: "An intelligent assistant that creates campaign concepts based on inputs."
+    },
+    {
+      title: "Option 3 — Submit Project Details",
+      detail: "Internal creative team builds custom storyboard."
+    }
+  ];
+  const lumiereBrandFeatures = [
+    "Showcase past shoots",
+    "Inspiration & aspiration boards",
+    "Display previous collaborations",
+    "Post future requirements",
+    "Rate & review working experience"
+  ];
+  const lumiereArtistProfile = [
+    "Professional portfolio grid",
+    "Pricing information",
+    "Availability calendar",
+    "Specialization tags",
+    "Awards & recognition",
+    "Location",
+    "Direct hire or message option"
+  ];
+  const lumiereArchitecture = [
+    "Landing → Role Selection → Signup → Dashboard",
+    "Brand Dashboard → Storyboard → Artist Discovery → Hire → Execute",
+    "Artist Dashboard → Portfolio → Availability → Accept Projects"
+  ];
+  const lumiereDecisions = [
+    "Separate login flows to reduce cognitive load.",
+    "Structured brand initiation paths for clarity.",
+    "AI integrated as assistant, not replacement.",
+    "Portfolio-first artist profiles.",
+    "Ratings system for transparency.",
+    "Clear CTA hierarchy."
+  ];
+  const lumiereImpact = [
+    "Faster project initiation",
+    "Reduced pre-production friction",
+    "Higher artist discoverability",
+    "Improved hiring transparency",
+    "Increased collaboration efficiency"
+  ];
+  const lumiereLearnings = [
+    "Creative platforms require structure without limiting freedom.",
+    "AI should enhance, not overpower creative process.",
+    "Dual-user platforms demand clear role segmentation.",
+    "Portfolio presentation directly impacts hiring behavior."
+  ];
   const designGoals = [
     { title: "Establish Strong Visual Hierarchy", icon: LayoutGrid },
     { title: "Improve Program Discoverability", icon: Target },
@@ -60,7 +148,7 @@ export default function ProjectPage({ theme, onToggle }) {
     >
       <div className="mx-auto flex w-[min(1120px,92%)] flex-col gap-10 pt-6">
         <Navbar theme={theme} onToggle={onToggle} />
-        {isManipal ? (
+        {isManipal || isLumiere ? (
           <Link
             to="/#projects"
             className="inline-flex w-fit items-center gap-2 rounded-full border border-accent/40 px-5 py-2 text-sm font-semibold text-accent"
@@ -93,6 +181,46 @@ export default function ProjectPage({ theme, onToggle }) {
                 >
                   Project Link
                 </a>
+              </div>
+            </>
+          ) : isLumiere ? (
+            <>
+              <p className="mt-4 text-sm font-semibold uppercase tracking-[0.2em] text-subtle">
+                Case Study — Building a Creative Collaboration Ecosystem
+              </p>
+              <h1 className="mt-3 text-4xl font-semibold md:text-5xl">
+                From Vision to Production — One Unified Creative Platform
+              </h1>
+              <p className="mt-4 max-w-3xl text-subtle">
+                A dual-sided digital platform connecting visionary brands with world-class photographers,
+                models, and creative talent — powered by AI-driven storyboarding and structured
+                collaboration workflows.
+              </p>
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                {lumiereMeta.map((item) => (
+                  <div key={item.label} className="rounded-2xl border border-muted bg-base p-4">
+                    <p className="text-xs font-semibold uppercase tracking-[0.3em] text-subtle">
+                      {item.label}
+                    </p>
+                    <p className="mt-2 text-sm text-text">{item.value}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+                {[
+                  { image: lumiereLandingImage, label: "Landing Page" },
+                  { image: lumiereBrandSignupImage, label: "Brand Signup" },
+                  { image: lumiereArtistSignupImage, label: "Artist Signup" }
+                ].map((item) => (
+                  <figure key={item.label} className="rounded-3xl border border-muted bg-base p-3">
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      className="h-48 w-full rounded-2xl object-cover"
+                    />
+                    <figcaption className="mt-3 text-xs text-subtle">{item.label}</figcaption>
+                  </figure>
+                ))}
               </div>
             </>
           ) : (
@@ -432,6 +560,304 @@ export default function ProjectPage({ theme, onToggle }) {
               <p className="mt-6 text-sm text-subtle">
                 A university website is not just informational. It is a decision-making platform.
               </p>
+            </div>
+          </AnimatedSection>
+        </>
+      ) : isLumiere ? (
+        <>
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-surface p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Project Overview</h2>
+              <p className="mt-4 text-subtle">
+                Lumiere is a Photo & Film Production House interface designed to streamline collaboration
+                between brands and creative talent. Traditionally, creative production involves scattered
+                communication, manual planning, and disconnected workflows.
+              </p>
+              <p className="mt-4 text-subtle">
+                This platform centralizes discovery, storyboard creation, hiring, and execution into one
+                cohesive ecosystem.
+              </p>
+              <div className="mt-6 grid gap-3 md:grid-cols-2">
+                {[
+                  "Brands can define and execute campaigns efficiently",
+                  "Artists can showcase work and get hired",
+                  "Storyboarding becomes intelligent and scalable",
+                  "Collaboration feels structured yet creative"
+                ].map((item) => (
+                  <div key={item} className="rounded-2xl border border-muted bg-base px-4 py-3 text-sm">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-base p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">The Problem</h2>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <div className="rounded-3xl border border-muted bg-surface p-6">
+                  <h3 className="text-base font-semibold text-text">Traditional workflows suffer from:</h3>
+                  <ul className="mt-3 space-y-2 text-sm text-subtle">
+                    {lumiereProblemPoints.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="rounded-3xl border border-muted bg-surface p-6">
+                  <h3 className="text-base font-semibold text-text">As a result:</h3>
+                  <ul className="mt-3 space-y-2 text-sm text-subtle">
+                    {lumiereImpactPoints.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <p className="mt-6 text-sm text-subtle">
+                The challenge was to design a platform that balances creativity with operational clarity.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-surface p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Product Vision</h2>
+              <div className="mt-6 grid gap-3 md:grid-cols-2">
+                {lumiereVisionPoints.map((item) => (
+                  <div key={item} className="rounded-2xl border border-muted bg-base px-4 py-3 text-sm">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-base p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Dual-User System</h2>
+              <div className="mt-6 grid gap-6 md:grid-cols-2">
+                <div className="rounded-3xl border border-muted bg-surface p-6">
+                  <h3 className="text-base font-semibold text-text">Brands / Agencies / Production Houses</h3>
+                  <p className="mt-3 text-sm text-subtle">
+                    Clients who hire talent, create campaigns, and manage project execution.
+                  </p>
+                </div>
+                <div className="rounded-3xl border border-muted bg-surface p-6">
+                  <h3 className="text-base font-semibold text-text">Artists & Talent</h3>
+                  <p className="mt-3 text-sm text-subtle">
+                    Photographers, models, stylists, influencers, creative directors.
+                  </p>
+                </div>
+              </div>
+              <p className="mt-6 text-sm text-subtle">
+                Separate onboarding and login flows reduce confusion and improve role clarity. Role selection
+                personalizes the dashboard experience.
+              </p>
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                <figure className="rounded-3xl border border-muted bg-surface p-3">
+                  <img
+                    src={lumiereBrandSignupImage}
+                    alt="Brand signup screen"
+                    className="h-56 w-full rounded-2xl object-cover"
+                  />
+                  <figcaption className="mt-3 text-xs text-subtle">Brand Signup Screen</figcaption>
+                </figure>
+                <figure className="rounded-3xl border border-muted bg-surface p-3">
+                  <img
+                    src={lumiereArtistSignupImage}
+                    alt="Artist signup screen"
+                    className="h-56 w-full rounded-2xl object-cover"
+                  />
+                  <figcaption className="mt-3 text-xs text-subtle">Artist Signup Screen</figcaption>
+                </figure>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-surface p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Brand Workflow & Dashboard Design</h2>
+              <div className="mt-6 grid gap-4 md:grid-cols-3">
+                {lumiereBrandPaths.map((item) => (
+                  <div key={item.title} className="rounded-3xl border border-muted bg-base p-6">
+                    <h3 className="text-base font-semibold text-text">{item.title}</h3>
+                    <p className="mt-3 text-sm text-subtle">{item.detail}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-6 rounded-3xl border border-muted bg-base p-6">
+                <p className="text-sm text-subtle">
+                  All paths ultimately lead to artist discovery, hiring, and production execution.
+                </p>
+                <div className="mt-4 grid gap-2 md:grid-cols-2">
+                  {lumiereBrandFeatures.map((item) => (
+                    <div key={item} className="rounded-2xl border border-muted bg-surface px-4 py-2 text-sm">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <p className="mt-6 text-sm text-subtle">
+                Design focus: Clarity, decision guidance, and structured execution flow.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-base p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Artist Discovery & Hiring Optimization</h2>
+              <div className="mt-6 grid gap-6 md:grid-cols-[1.05fr_0.95fr]">
+                <div className="rounded-3xl border border-muted bg-surface p-6">
+                  <p className="text-sm text-subtle">
+                    Artist profiles are designed for discoverability and trust. The goal is to reduce
+                    ambiguity and increase hiring confidence.
+                  </p>
+                  <div className="mt-4 grid gap-2 md:grid-cols-2">
+                    {lumiereArtistProfile.map((item) => (
+                      <div key={item} className="rounded-2xl border border-muted bg-base px-4 py-2 text-sm">
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <p className="mt-4 text-sm text-subtle">Design principle: Make hiring frictionless.</p>
+                </div>
+                <figure className="rounded-3xl border border-muted bg-surface p-3">
+                  <img
+                    src={lumiereArtistProfileImage}
+                    alt="Artist profile screen"
+                    className="h-72 w-full rounded-2xl object-cover"
+                  />
+                  <figcaption className="mt-3 text-xs text-subtle">Artist Profile Screen</figcaption>
+                </figure>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-surface p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">System Architecture</h2>
+              <div className="mt-6 grid gap-4 md:grid-cols-3">
+                {lumiereArchitecture.map((item) => (
+                  <div key={item} className="rounded-3xl border border-muted bg-base p-6">
+                    <p className="text-sm text-subtle">{item}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 rounded-3xl border border-muted bg-base p-6">
+                <p className="text-sm text-subtle">Visual flow diagram style representation.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-base p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Visual Identity & Design Language</h2>
+              <div className="mt-6 grid gap-4 md:grid-cols-2">
+                <div className="rounded-3xl border border-muted bg-surface p-6">
+                  <h3 className="text-base font-semibold text-text">Style Direction</h3>
+                  <ul className="mt-3 space-y-2 text-sm text-subtle">
+                    <li>Dark cinematic theme</li>
+                    <li>Editorial serif headlines</li>
+                    <li>Clean sans-serif body text</li>
+                    <li>Warm accent tone (gold/orange)</li>
+                    <li>Strong whitespace</li>
+                    <li>Soft glass navigation bar</li>
+                  </ul>
+                </div>
+                <div className="rounded-3xl border border-muted bg-surface p-6">
+                  <h3 className="text-base font-semibold text-text">Why this direction?</h3>
+                  <p className="mt-3 text-sm text-subtle">
+                    Creative industries require emotional storytelling, not corporate rigidity. The system
+                    balances cinematic mood with structured clarity.
+                  </p>
+                </div>
+              </div>
+              <figure className="mt-8 rounded-3xl border border-muted bg-surface p-3">
+                <img
+                  src={lumiereAboutImage}
+                  alt="Lumiere visual storytelling overview"
+                  className="w-full rounded-2xl object-cover"
+                />
+                <figcaption className="mt-3 text-xs text-subtle">
+                  Cinematic layout style and editorial spacing in the storytelling section.
+                </figcaption>
+              </figure>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-surface p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Strategic Design Decisions</h2>
+              <div className="mt-6 grid gap-3 md:grid-cols-2">
+                {lumiereDecisions.map((item) => (
+                  <div key={item} className="rounded-2xl border border-muted bg-base px-4 py-3 text-sm">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-base p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Business & User Impact</h2>
+              <div className="mt-6 grid gap-3 md:grid-cols-2">
+                {lumiereImpact.map((item) => (
+                  <div key={item} className="rounded-2xl border border-muted bg-surface px-4 py-3 text-sm">
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-surface p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Final Visual Showcase</h2>
+              <div className="mt-6 grid gap-4 md:grid-cols-3">
+                {[
+                  { image: lumiereLandingImage, label: "Landing Page" },
+                  { image: lumiereArtistProfileImage, label: "Artist Profile" },
+                  { image: lumiereBrandSignupImage, label: "Brand Signup" }
+                ].map((item) => (
+                  <figure key={item.label} className="rounded-3xl border border-muted bg-base p-3">
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      className="h-48 w-full rounded-2xl object-cover"
+                    />
+                    <figcaption className="mt-3 text-xs text-subtle">{item.label}</figcaption>
+                  </figure>
+                ))}
+              </div>
+              <div className="mt-4 grid gap-4 md:grid-cols-2">
+                {[
+                  { image: lumiereArtistSignupImage, label: "Artist Signup" },
+                  { image: lumiereAboutImage, label: "About Us" }
+                ].map((item) => (
+                  <figure key={item.label} className="rounded-3xl border border-muted bg-base p-3">
+                    <img
+                      src={item.image}
+                      alt={item.label}
+                      className="h-48 w-full rounded-2xl object-cover"
+                    />
+                    <figcaption className="mt-3 text-xs text-subtle">{item.label}</figcaption>
+                  </figure>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-12">
+            <div className="rounded-[36px] border border-muted bg-base p-8 md:p-10">
+              <h2 className="text-2xl font-semibold">Key Learnings</h2>
+              <div className="mt-6 grid gap-3 md:grid-cols-2">
+                {lumiereLearnings.map((item) => (
+                  <div key={item} className="rounded-2xl border border-muted bg-surface px-4 py-3 text-sm">
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
           </AnimatedSection>
         </>
