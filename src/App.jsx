@@ -8,11 +8,9 @@ const THEME_KEY = "sm_theme";
 
 const getInitialTheme = () => {
   if (typeof window === "undefined") return "light";
-  const stored = window.localStorage.getItem(THEME_KEY);
-  if (stored) return stored;
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  // const stored = window.localStorage.getItem(THEME_KEY);
+  // if (stored) return stored;
+  return "light";
 };
 
 const setThemeClass = (theme) => {
