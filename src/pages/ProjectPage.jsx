@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowLeft, LayoutGrid, MonitorSmartphone, ShieldCheck, Target } from "lucide-react";
 import { Link, useParams } from "react-router-dom";
@@ -20,6 +21,11 @@ export default function ProjectPage({ theme, onToggle }) {
   const project = projects.find((item) => item.slug === slug);
   const isManipal = project?.slug === "manipal-university-landing-page";
   const isLumiere = project?.slug === "photo-and-film-production-house";
+  const isNoCaseStudy = project?.slug === "ui-ux-design-projects" || project?.slug === "library-management-system";
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [slug]);
   const prototypeLink =
     "https://www.figma.com/design/T2ZOiIPA7BWsbw0OjHL83A/Manipal?node-id=62-1365&t=LNTLifUd47Ik3ry8-1";
   const lumiereMeta = [
@@ -148,7 +154,7 @@ export default function ProjectPage({ theme, onToggle }) {
     >
       <div className="mx-auto flex w-[min(1120px,92%)] flex-col gap-10 pt-6">
         <Navbar theme={theme} onToggle={onToggle} />
-        {isManipal || isLumiere ? (
+        {isManipal || isLumiere || isNoCaseStudy ? (
           <Link
             to="/#projects"
             className="inline-flex w-fit items-center gap-2 rounded-full border border-accent/40 px-5 py-2 text-sm font-semibold text-accent"
@@ -221,6 +227,15 @@ export default function ProjectPage({ theme, onToggle }) {
                     <figcaption className="mt-3 text-xs text-subtle">{item.label}</figcaption>
                   </figure>
                 ))}
+              </div>
+            </>
+          ) : isNoCaseStudy ? (
+            <>
+              <h1 className="mt-4 text-4xl font-semibold md:text-5xl">{project.title}</h1>
+              <p className="mt-6 max-w-2xl text-lg text-subtle">No case study available for this project.</p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <span className="badge bg-base">{project.category}</span>
+                <span className="badge bg-base">UI/UX</span>
               </div>
             </>
           ) : (
@@ -858,6 +873,16 @@ export default function ProjectPage({ theme, onToggle }) {
                   </div>
                 ))}
               </div>
+            </div>
+          </AnimatedSection>
+        </>
+      ) : isNoCaseStudy ? (
+        <>
+          <AnimatedSection className="mx-auto w-[min(1120px,92%)] py-20">
+            <div className="text-center">
+              <h2 className="text-3xl font-semibold md:text-4xl">No Case Study Available</h2>
+              <p className="mt-6 text-lg text-subtle">This project does not have a detailed case study at this time.</p>
+              <p className="mt-4 text-subtle">Feel free to explore other projects or get in touch to discuss this work!</p>
             </div>
           </AnimatedSection>
         </>

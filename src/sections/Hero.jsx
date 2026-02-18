@@ -61,6 +61,8 @@ export default function Hero() {
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-subtle">Based in</p>
               <p className="mt-3 text-lg font-semibold text-text">Navi Mumbai, Panvel</p>
+              <p className="mt-3 text-xs font-semibold uppercase tracking-[0.3em] text-subtle">Experience</p>
+              <p className="mt-2 text-lg font-semibold text-text">6+ months</p>
             </div>
             <div className="text-sm">
               <p className="text-subtle">Open to collaboration</p>
